@@ -1,4 +1,5 @@
 class RecipesController < ApplicationController
+  before_action :set_user
   include RecipesHelper
 
   def index

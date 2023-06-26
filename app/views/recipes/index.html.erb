@@ -1,4 +1,5 @@
 <% if @recipes %>
+  <%= render 'shared/login_as'%>
   <% @recipes.each do |recipe| %>
     <div class='container'>
       <div class='name_and_btn'>
