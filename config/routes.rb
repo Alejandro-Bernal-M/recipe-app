@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   # root "articles#index"
   root to: "recipes#index"
   get '/recipes', to: 'recipes#index'
-  get '/recipes/id', to: 'recipes#show', as: 'recipe'
+  get '/recipes/:id', to: 'recipes#show', as: 'recipe'
+  delete '/recipes/:id', to: 'recipes#destroy', as: 'delete_recipe'
 end

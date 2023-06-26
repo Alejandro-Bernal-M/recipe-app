@@ -1,8 +1,11 @@
 <% if @recipes %>
   <% @recipes.each do |recipe| %>
     <div class='container'>
-      <div class='nameAndbtn'>
-        <%= link_to recipe.name, recipe_path %>
+      <div class='name_and_btn'>
+        <p class='recipe_title'><%= link_to recipe.name, recipe_path(recipe.id) %></p>
+        <% if user?(recipe, @current_user.id)%>
+          <%= button_to 'Remove', delete_recipe_path(recipe.id), method: :delete%>
+        <% end %>
       </div>
       <div class='description'>
         <%= recipe.description %>
