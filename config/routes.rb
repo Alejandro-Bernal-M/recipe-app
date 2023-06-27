@@ -8,4 +8,8 @@ Rails.application.routes.draw do
   get '/recipes', to: 'recipes#index'
   get '/recipes/:id', to: 'recipes#show', as: 'recipe'
   delete '/recipes/:id', to: 'recipes#destroy', as: 'delete_recipe'
+  get '/foods', to: 'foods#index'
+  get '/foods/new', to: 'foods#new', as: 'new_food'
+  post '/foods/new', to: 'foods#create', as: 'create_food'
+  delete '/foods/:id', to: 'foods#destroy', as: 'delete_food'
 end
