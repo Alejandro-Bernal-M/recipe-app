@@ -9,7 +9,7 @@
   </div>
   <div class = 'recipe_buttons'>
   <p>button 1: generate shopping list</p>
-  <p>button 2: Add ingredient</p>
+  <%= button_to 'Add new ingredient', new_recipe_food_path(recipe_id: @recipe.id), method: :get %>
   </div>
   <hr />
   <div class= 'recipe_ingredients'>
@@ -25,9 +25,9 @@
       <tbody>
         <% @recipe.recipe_foods.each do |ingredient| %>
           <tr>
-            <td><%= ingredient.name %></td>
+            <td><%= ingredient.food.name %></td>
             <td><%= ingredient.quantity %></td>
-            <td><%= ingredient.value %></td>
+            <td><%= ingredient.food.price * ingredient.quantity %></td>
             <td>Modify remove</td>
           </tr>
         <% end %>

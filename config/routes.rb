@@ -14,4 +14,7 @@ Rails.application.routes.draw do
   get '/foods/new', to: 'foods#new', as: 'new_food'
   post '/foods/new', to: 'foods#create', as: 'create_food'
   delete '/foods/:id', to: 'foods#destroy', as: 'delete_food'
+
+  get 'recipes/:recipe_id/foods/new', to: 'recipes_food#new', as: 'new_recipe_food'
+  post 'recipes/recipe_food/new', to: 'recipes_food#create', as: 'create_recipe_food'
 end

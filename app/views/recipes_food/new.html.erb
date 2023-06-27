@@ -1,0 +1,31 @@
+<h1> Add a new ingredient </h1>
+<p> Adding ingredient for  the <%= @recipe.name %> recipe</p>
+<p> Select one food </p>
+<%= link_to "Add new food", new_food_path %>
+<div class="foods-list">
+  <table class="table-food">
+    <thead>
+      <th>Name</th>
+      <th>Measurement Unit</th>
+      <th>Unit Price</th>
+      <th>Actions</th>
+    </thead>
+    <tbody>
+      <% @foods.each do |food| %>
+        <tr>
+          <td><%= food.name %></td>
+          <td><%= food.measurement_unit %></td>
+          <td><%= food.price %></td>
+          <td>
+            <%= form_with model: @recipe_food, url: create_recipe_food_path, method: :post do |form| %>
+              <%= form.number_field :quantity, class: 'form-control', placeholder: 'quantity' %>
+              <%= form.hidden_field :recipe_id, :value => @recipe.id %>
+              <%= form.hidden_field :food_id, :value => food.id %>
+              <%= form.submit 'Add ingredient' %>
+            <% end %>
+          </td>
+          </tr>
+  <% end %>
+    </tbody>
+  </table>
+</div>
