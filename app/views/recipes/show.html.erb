@@ -6,12 +6,15 @@
       <p>Cooking time: <%= @recipe.cooking_time%> hours </p>
       <p> <%= @recipe.description %> </p>
     </div>
+    <div class= 'toggle_btn'>
+      Public (togle)
+    </div>
   </div>
   <div class = 'recipe_buttons'>
   <p>button 1: generate shopping list</p>
   <%= button_to 'Add new ingredient', new_recipe_food_path(recipe_id: @recipe.id), method: :get %>
   </div>
-  <hr />
+  <hr class= 'divisor' />
   <div class= 'recipe_ingredients'>
     <table>
       <thead>

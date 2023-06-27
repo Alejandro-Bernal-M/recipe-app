@@ -6,15 +6,14 @@ class RecipesFoodController < ApplicationController
 
   def create
     @recipe_food = RecipeFood.create(recipe_food_params)
-  
+
     if @recipe_food.save
       redirect_to recipe_path(params[:recipe_id])
     else
-      flash[:alert] = "Recipe Food was not created, try again."
+      flash[:alert] = 'Recipe Food was not created, try again.'
       redirect_to recipe_path(@recipe)
     end
   end
-  
 
   def destroy
     @recipe_food = RecipeFood.find(params[:id])
