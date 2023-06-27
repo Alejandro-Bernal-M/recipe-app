@@ -18,7 +18,7 @@
           <td><%= food.price %></td>
           <td>
             <%= form_with model: @recipe_food, url: create_recipe_food_path, method: :post do |form| %>
-              <%= form.number_field :quantity, class: 'form-control', placeholder: 'quantity' %>
+              <%= form.number_field :quantity, placeholder: 'quantity' %>
               <%= form.hidden_field :recipe_id, :value => @recipe.id %>
               <%= form.hidden_field :food_id, :value => food.id %>
               <%= form.submit 'Add ingredient' %>

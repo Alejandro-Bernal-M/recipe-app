@@ -22,9 +22,24 @@ class RecipesFoodController < ApplicationController
     redirect_to recipe_path(params[:recipe_id])
   end
 
+  def edit
+    @recipe = Recipe.find(params[:recipe_id])
+    @recipe_food = RecipeFood.find(params[:id])
+  end
+
+  def update
+    @recipe_food = RecipeFood.find(params[:id])
+    @recipe_food.update(recipe_food_params_update)
+    redirect_to recipe_path(params[:recipe_id])
+  end
+
   private
 
   def recipe_food_params
     params.permit(:recipe_id, :food_id, :quantity)
+  end
+
+  def recipe_food_params_update
+    params.require(:recipe_food).permit(:quantity)
   end
 end
