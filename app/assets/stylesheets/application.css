@@ -4,6 +4,13 @@
   padding: 0;
 }
 
+.loginAs {
+  display: flex;
+  width: 70%;
+  justify-content: center;
+  gap: 15px;
+}
+
 .container {
   width: 80%;
   height: 150px;
@@ -111,4 +118,8 @@ td {
 
 tbody > tr:nth-child(odd) {
   background-color: #ddd8d8;
+}
+
+.public_recipes_title {
+  text-align: center;
 }
