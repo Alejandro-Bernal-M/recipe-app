@@ -1,5 +1,5 @@
-<% if @recipes %>
-  <%= render 'shared/login_as'%>
+<%= render 'shared/login_as'%>
+<% if @recipes.any? %>
   <% @recipes.each do |recipe| %>
     <div class='container'>
       <div class='name_and_btn'>
@@ -13,6 +13,7 @@
       </div>
     </div>
   <% end %>
-  <% else %>
+<% else %>
     <h1>There are no recipes</h1>
 <% end %>
+<%= button_to 'Create a new recipe', new_recipe_path, method: :get,  class: 'btn' %>
