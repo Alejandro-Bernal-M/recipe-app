@@ -35,3 +35,12 @@
   text-align: justify;
   padding: 30px 0;
 }
+
+.table-food,
+th,
+td {
+  border-collapse: collapse;
+  border: 1px solid black;
+  padding: 8px;
+  text-align: left;
+}
