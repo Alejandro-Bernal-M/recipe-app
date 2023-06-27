@@ -82,6 +82,7 @@ td {
   display: flex;
   align-items: flex-start;
   padding: 20px 0;
+  gap: 10px;
 }
 
 .recipe_buttons {
