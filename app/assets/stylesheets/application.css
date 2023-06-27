@@ -11,6 +11,37 @@
   gap: 15px;
 }
 
+.form,
+.new_user {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 70%;
+  margin: 0 auto;
+  gap: 15px;
+}
+
+.field {
+  width: 50%;
+}
+
+.form_div {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  width: 100%;
+}
+
+.form_div > input:not([type="radio"]),
+.form_div > textarea,
+.field > input:not([type="checkbox"]) {
+  width: 100%;
+}
+
+.form_div > input:not([type="radio"]) {
+  height: 30px;
+}
+
 .container {
   width: 80%;
   height: 150px;
@@ -122,4 +153,10 @@ tbody > tr:nth-child(odd) {
 
 .public_recipes_title {
   text-align: center;
+}
+
+.btn {
+  height: 30px;
+  width: 200px;
+  cursor: pointer;
 }
