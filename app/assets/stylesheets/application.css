@@ -112,3 +112,23 @@ td {
 tbody > tr:nth-child(odd) {
   background-color: #ddd8d8;
 }
+
+.shopping-list-container {
+  width: 80%;
+  height: 150px;
+  margin: 30px auto;
+  padding: 0 20px;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.shopping-list-summary {
+  display: flex;
+  padding: 10px;
+  margin-top: 10px;
+  justify-content: space-between;
+  width: 100%;
+}
