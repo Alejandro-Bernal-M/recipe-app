@@ -33,7 +33,6 @@ class RecipesController < ApplicationController
     @recipe.update(public: !@recipe.public)
     redirect_to recipe_path(@recipe)
   end
-  
 
   private
 
