@@ -28,7 +28,10 @@
             <td><%= ingredient.food.name %></td>
             <td><%= ingredient.quantity %></td>
             <td><%= ingredient.food.price * ingredient.quantity %></td>
-            <td>Modify remove</td>
+            <td>
+              Modify 
+              <%= link_to 'Remove', delete_recipe_food_path(recipe_id:@recipe.id, id: ingredient.id), data: {turbo_method: :delete} %>
+            </td>
           </tr>
         <% end %>
       </tbody>
