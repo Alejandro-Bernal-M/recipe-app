@@ -1,0 +1,37 @@
+<div class = 'recipe_container'>
+  <h1> <%= @recipe.name %> </h1>
+  <div class= 'recipe_details_and_toggle'>
+    <div class='recipe_details'>
+      <p>Preparation time: <%= @recipe.preparation_time%> hours </p>
+      <p>Cooking time: <%= @recipe.cooking_time%> hours </p>
+      <p> <%= @recipe.description %> </p>
+    </div>
+  </div>
+  <div class = 'recipe_buttons'>
+  <p>button 1: generate shopping list</p>
+  <p>button 2: Add ingredient</p>
+  </div>
+  <hr />
+  <div class= 'recipe_ingredients'>
+    <table>
+      <thead>
+        <tr>
+          <th>Food</th>
+          <th>Quantity</th>
+          <th>Value</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @recipe.recipe_foods.each do |ingredient| %>
+          <tr>
+            <td><%= ingredient.name %></td>
+            <td><%= ingredient.quantity %></td>
+            <td><%= ingredient.value %></td>
+            <td>Modify remove</td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
