@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   post '/recipes', to: 'recipes#create', as: 'create_recipe'
   get '/recipes/new', to: 'recipes#new', as: 'new_recipe'
   get '/recipes/:id', to: 'recipes#show', as: 'recipe'
+  patch 'recipes/:id/update_public', to: 'recipes#update_public', as: 'update_recipe_public'
   delete '/recipes/:id', to: 'recipes#destroy', as: 'delete_recipe'
   get '/foods', to: 'foods#index'
   get '/foods/new', to: 'foods#new', as: 'new_food'

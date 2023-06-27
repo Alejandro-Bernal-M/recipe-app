@@ -7,7 +7,13 @@
       <p> <%= @recipe.description %> </p>
     </div>
     <div class= 'toggle_btn'>
-      Public (togle)
+      <% if @recipe.public? %>
+        <span> The recipe is public,  </span>
+        <%= link_to ' Make Private', update_recipe_public_path(@recipe), data: {turbo_method: :patch} %>
+      <% else %>
+        <span> The recipe is private,  </span>
+        <%= link_to ' Make Public', update_recipe_public_path(@recipe),  data: {turbo_method: :patch} %>
+      <% end %>
     </div>
   </div>
   <div class = 'recipe_buttons'>
