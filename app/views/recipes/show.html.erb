@@ -26,8 +26,8 @@
         <% @recipe.recipe_foods.each do |ingredient| %>
           <tr>
             <td><%= ingredient.food.name %></td>
-            <td><%= ingredient.quantity %></td>
-            <td><%= ingredient.food.price * ingredient.quantity %></td>
+            <td><%= ingredient.quantity %> <%= ingredient.food.measurement_unit%> </td>
+            <td>$<%= ingredient.food.price * ingredient.quantity %></td>
             <td>
              <%= link_to 'Modify', edit_recipe_food_path(recipe_id:@recipe.id, id: ingredient.id) %> 
               <%= link_to 'Remove', delete_recipe_food_path(recipe_id:@recipe.id, id: ingredient.id), data: {turbo_method: :delete} %>
