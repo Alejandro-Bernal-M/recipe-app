@@ -30,7 +30,6 @@ RSpec.describe RecipeFood, type: :model do
     expect(recipe_food).to_not be_valid
   end
 
-
   it 'is not valid with a quantity less than 0' do
     recipe_food.quantity = -1
     expect(recipe_food).to_not be_valid
