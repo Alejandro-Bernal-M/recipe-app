@@ -3,7 +3,8 @@ require 'rails_helper'
 RSpec.describe 'Recipes Food Edit', type: :feature do
   before do
     @user = User.create(name: 'Test User', email: 'test@test.com', password: '123456')
-    @recipe1 = Recipe.create(name: 'Test Recipe 1', preparation_time: 10, cooking_time: 10, description: 'Test Description 1', public: true, user: @user)
+    @recipe1 = Recipe.create(name: 'Test Recipe 1', preparation_time: 10, cooking_time: 10,
+                             description: 'Test Description 1', public: true, user: @user)
     @food1 = Food.create(name: 'Test Food 1', user: @user, measurement_unit: 'grams', price: 10, quantity: 10)
     @recipe_food1 = RecipeFood.create(recipe: @recipe1, food: @food1, quantity: 5)
 
@@ -16,10 +17,10 @@ RSpec.describe 'Recipes Food Edit', type: :feature do
   end
 
   describe 'GET /recipe/:id/food/new' do
-    before { visit edit_recipe_food_path(recipe_id: @recipe1.id, id: @recipe_food1.id)}
+    before { visit edit_recipe_food_path(recipe_id: @recipe1.id, id: @recipe_food1.id) }
 
     it 'Has the correct title' do
-      expect(page).to have_content("Editing The Quantity For Test Food 1")
+      expect(page).to have_content('Editing The Quantity For Test Food 1')
     end
 
     it 'Has the go back link' do

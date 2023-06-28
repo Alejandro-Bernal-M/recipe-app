@@ -3,7 +3,8 @@ require 'rails_helper'
 RSpec.describe 'Recipes Food New', type: :feature do
   before do
     @user = User.create(name: 'Test User', email: 'test@test.com', password: '123456')
-    @recipe1 = Recipe.create(name: 'Test Recipe 1', preparation_time: 10, cooking_time: 10, description: 'Test Description 1', public: true, user: @user)
+    @recipe1 = Recipe.create(name: 'Test Recipe 1', preparation_time: 10, cooking_time: 10,
+                             description: 'Test Description 1', public: true, user: @user)
     @food1 = Food.create(name: 'Test Food 1', user: @user, measurement_unit: 'grams', price: 10, quantity: 10)
 
     visit new_user_session_path
@@ -15,7 +16,7 @@ RSpec.describe 'Recipes Food New', type: :feature do
   end
 
   describe 'GET /recipe/:id/food/new' do
-    before { visit new_recipe_food_path(@recipe1)}
+    before { visit new_recipe_food_path(@recipe1) }
 
     it 'Has the correct title' do
       expect(page).to have_content('Add A New Ingredient')

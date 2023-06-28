@@ -11,9 +11,9 @@ RSpec.describe 'Recipes New', type: :feature do
     @current_user = @user
     visit new_recipe_path
   end
-  
+
   describe 'GET /recipes/new' do
-   before { visit new_recipe_path}
+    before { visit new_recipe_path }
 
     it 'has the correct title' do
       expect(page).to have_content('Create A New Recipe')
@@ -35,5 +35,4 @@ RSpec.describe 'Recipes New', type: :feature do
       expect(page).to have_button('Create Recipe')
     end
   end
-
 end
