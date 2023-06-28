@@ -7,18 +7,22 @@
       <p> <%= @recipe.description %> </p>
     </div>
     <div class= 'toggle_btn'>
-      <% if @recipe.public? %>
-        <span> The recipe is public,  </span>
-        <%= link_to ' Make Private', update_recipe_public_path(@recipe), data: {turbo_method: :patch} %>
-      <% else %>
-        <span> The recipe is private,  </span>
-        <%= link_to ' Make Public', update_recipe_public_path(@recipe),  data: {turbo_method: :patch} %>
+      <% if user?(@recipe, @current_user.id ) %>
+        <% if @recipe.public? %>
+          <span> The recipe is public,  </span>
+          <%= link_to ' Make Private', update_recipe_public_path(@recipe), data: {turbo_method: :patch} %>
+        <% else %>
+          <span> The recipe is private,  </span>
+          <%= link_to ' Make Public', update_recipe_public_path(@recipe),  data: {turbo_method: :patch} %>
+        <% end %>
       <% end %>
     </div>
   </div>
   <div class = 'recipe_buttons'>
   <p>button 1: generate shopping list</p>
-  <%= button_to 'Add new ingredient', new_recipe_food_path(recipe_id: @recipe.id), method: :get %>
+  <% if user?(@recipe, @current_user.id ) %>
+    <%= button_to 'Add new ingredient', new_recipe_food_path(recipe_id: @recipe.id), method: :get %>
+  <% end %>
   </div>
   <hr class= 'divisor' />
   <div class= 'recipe_ingredients'>
