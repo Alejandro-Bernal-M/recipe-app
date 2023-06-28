@@ -239,14 +239,13 @@ button {
 }
 
 .foods-list-container {
-  width: 80%;
   height: 150px;
   margin: 30px auto;
   padding: 0 20px;
   display: flex;
   flex-direction: column;
   width: 80%;
-  align-items: center
+  align-items: center;
 }
 
 .add-food-button {
@@ -258,5 +257,4 @@ button {
 
 .foods-list-title {
   align-items: center;
-
 }
