@@ -4,7 +4,8 @@ class ShoppingListController < ApplicationController
     @recipes = Recipe.where(user_id: current_user.id)
     @foods = Food.where(user_id: current_user.id)
 
-    @required_foods = @recipes.flat_map do |recipe| # Transform recipes and required foods into a flat list of required items
+    # Transform recipes and required foods into a flat list of required items
+    @required_foods = @recipes.flat_map do |recipe|
       recipe.recipe_foods.map do |recipe_food|
         food = recipe_food.food
         food[:quantity] = recipe_food.quantity

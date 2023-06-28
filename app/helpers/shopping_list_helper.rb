@@ -1,5 +1,6 @@
 module ShoppingListHelper
-  def calculate_total_price(combined_foods) # calculates the total price of the combined foods in the shopping list
+  # calculates the total price of the combined foods in the shopping list
+  def calculate_total_price(combined_foods)
     total_price = 0
     combined_foods.each do |missing_food|
       food = Food.find_by(name: missing_food[:name])
@@ -8,7 +9,8 @@ module ShoppingListHelper
     total_price
   end
 
-  def combine_foods(foods) # combines similar foods and calculates the total required quantity for each unique food item
+  # combines similar foods and calculates the total required quantity for each unique food item
+  def combine_foods(foods)
     grouped_foods = foods.group_by { |hash| hash[:name] }
     grouped_foods.map do |name, group|
       {
@@ -20,7 +22,8 @@ module ShoppingListHelper
     end
   end
 
-  def diff_in_stock(stock_hash, required_foods) # calculates the difference between the stock and the required foods
+  # calculates the difference between the stock and the required foods
+  def diff_in_stock(stock_hash, required_foods)
     required_foods.reduce([]) do |result, required_food|
       difference = required_food.quantity - stock_hash.fetch(required_food.name, 0)
       if difference.positive?
