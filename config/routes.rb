@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get '/recipes/:id', to: 'recipes#show', as: 'recipe'
   patch 'recipes/:id/update_public', to: 'recipes#update_public', as: 'update_recipe_public'
   delete '/recipes/:id', to: 'recipes#destroy', as: 'delete_recipe'
-  get '/foods', to: 'foods#index'
+  get '/foods', to: 'foods#index', as: 'foods'
   get '/foods/new', to: 'foods#new', as: 'new_food'
   post '/foods/new', to: 'foods#create', as: 'create_food'
   delete '/foods/:id', to: 'foods#destroy', as: 'delete_food'
