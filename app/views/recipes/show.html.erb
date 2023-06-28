@@ -19,7 +19,7 @@
     </div>
   </div>
   <div class = 'recipe_buttons'>
-  <p>button 1: generate shopping list</p>
+  <%= button_to 'Generate Shopping List', shopping_list_path(recipe_id: @recipe.id), method: :get %>
   <% if user?(@recipe, @current_user.id ) %>
     <%= button_to 'Add new ingredient', new_recipe_food_path(recipe_id: @recipe.id), method: :get %>
   <% end %>

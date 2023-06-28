@@ -23,4 +23,6 @@ Rails.application.routes.draw do
   patch 'recipes/:recipe_id/foods/:id/edit', to: 'recipes_food#update', as: 'update_recipe_food'
 
   get '/public_recipes', to: 'public_recipes#index', as: 'public_recipes'
+
+  get 'shopping_list', to: 'shopping_list#index', as: 'shopping_list'
 end
