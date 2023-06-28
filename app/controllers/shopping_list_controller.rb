@@ -2,7 +2,7 @@ class ShoppingListController < ApplicationController
   before_action :set_user
   include ShoppingListHelper
   def index
-    @recipes = Recipe.where(user_id: current_user.id)
+    @recipes = Recipe.includes(:recipe_foods).where(user_id: current_user.id)
     @foods = Food.where(user_id: current_user.id)
 
     # Transform recipes and required foods into a flat list of required items
