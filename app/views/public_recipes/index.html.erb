@@ -1,6 +1,5 @@
 <div class = 'recipe_container'>
   <h1> Public recipes </h1>
-  <%= render 'shared/login_as'%>
   <% if @recipes.any? %>
     <% @recipes.each do |recipe| %>
       <div class='container'>

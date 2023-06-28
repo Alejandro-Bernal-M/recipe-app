@@ -1,4 +1,5 @@
 class FoodsController < ApplicationController
+  before_action :set_user
   def index
     @user = current_user
     @foods = @user.foods
