@@ -28,7 +28,7 @@
   height: 100%;
 }
 
-.navbarlinks{
+.navbarlinks {
   width: 60%;
   height: 100%;
   display: flex;
@@ -37,7 +37,7 @@
   flex-wrap: wrap;
 }
 
-.navbar-ul{
+.navbar-ul {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
@@ -45,7 +45,7 @@
   gap: 10px;
 }
 
-.nav-link{
+.nav-link {
   color: #fff;
 }
 
