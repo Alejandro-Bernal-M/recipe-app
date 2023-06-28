@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <%= link_to "Navbar", root_path, class: "navbar-brand" %>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar" id="navbarNav">
+      <ul class="navbar-ul">
+        <li class="nav-item">
+          <%= link_to "Public recipes", root_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "My recipes", recipes_path, class: "nav-link" %>
+        </li>
+      </ul>
+
+      <ul class="navbar-ul">
+        <% if @current_user %>
+         <%= link_to @current_user.email, edit_user_password_path, class: 'nav-link' %>
+         <%= button_to "Sign Out", destroy_user_session_path, method: :delete, class: "logout" %>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "Sign up", new_user_registration_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>
