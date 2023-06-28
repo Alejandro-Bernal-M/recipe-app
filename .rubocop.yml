@@ -60,3 +60,4 @@ Style/HashTransformValues:
   Enabled: false
 Layout/EndOfLine:
   EnforcedStyle: lf
+  Enabled: false
