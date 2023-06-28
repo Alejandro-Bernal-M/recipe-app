@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   root to: "public_recipes#index"
-  get '/recipes', to: 'recipes#index'
+  get '/recipes', to: 'recipes#index', as: 'recipes'
   post '/recipes', to: 'recipes#create', as: 'create_recipe'
   get '/recipes/new', to: 'recipes#new', as: 'new_recipe'
   get '/recipes/:id', to: 'recipes#show', as: 'recipe'

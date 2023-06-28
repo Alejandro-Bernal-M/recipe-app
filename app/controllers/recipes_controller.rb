@@ -1,5 +1,6 @@
 class RecipesController < ApplicationController
   before_action :set_user
+  # except: [:create, :new, :update_public]
   include RecipesHelper
 
   def index
@@ -16,7 +17,9 @@ class RecipesController < ApplicationController
     redirect_to recipes_path
   end
 
-  def new; end
+  def new
+    @recipe = Recipe.new
+  end
 
   def create
     @recipe = Recipe.new(recipe_params)
@@ -24,7 +27,8 @@ class RecipesController < ApplicationController
     if @recipe.save
       redirect_to recipes_path, notice: 'Recipe was successfully created.'
     else
-      render :new, notice: 'Recipe was not created, try again.'
+      flash.now[:alert] = 'Recipe was not created, please fix the following errors:'
+      render :new
     end
   end
 
@@ -37,6 +41,6 @@ class RecipesController < ApplicationController
   private
 
   def recipe_params
-    params.permit(:name, :preparation_time, :cooking_time, :description, :public)
+    params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :description, :public)
   end
 end
