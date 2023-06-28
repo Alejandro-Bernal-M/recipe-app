@@ -2,7 +2,8 @@ require 'rails_helper'
 
 RSpec.describe 'Shopping list page', type: :feature do
   before(:each) do
-    @user = User.create!(name: 'User Test', email: 'test@gmail.com', password: '123456', password_confirmation: '123456')
+    @user = User.create!(name: 'User Test', email: 'test@gmail.com', password: '123456',
+                         password_confirmation: '123456')
     @food = Food.create!(name: 'potatoes', price: 5, quantity: 2, measurement_unit: 'grams', user: @user)
     @recipe = Recipe.create(name: 'rice', preparation_time: '2', cooking_time: '1')
     @recipe_food = RecipeFood.create(recipe: @recipe, food: @food, quantity: 3)

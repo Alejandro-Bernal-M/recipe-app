@@ -5,7 +5,7 @@ RSpec.describe RecipeFood, type: :model do
     User.create(name: 'User Test', email: 'test@gmail.com', password: '123456', password_confirmation: '123456')
   end
 
-  before do 
+  before do
     @food = Food.create(name: 'potatoes', price: 5, quantity: 2, measurement_unit: 'grams', user: subject)
     @recipe = Recipe.create(name: 'rice', preparation_time: '2', cooking_time: '1')
     @recipe_food = RecipeFood.create(recipe: @recipe, food: @food, quantity: 5)
