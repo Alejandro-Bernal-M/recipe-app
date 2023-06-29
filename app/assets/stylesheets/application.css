@@ -237,3 +237,24 @@ tbody > tr:nth-child(odd) {
 button {
   cursor: pointer;
 }
+
+.foods-list-container {
+  height: 150px;
+  margin: 30px auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  align-items: center;
+}
+
+.add-food-button {
+  display: flex;
+  justify-content: flex-end;
+  margin: 20px;
+  width: 40%;
+}
+
+.foods-list-title {
+  align-items: center;
+}
