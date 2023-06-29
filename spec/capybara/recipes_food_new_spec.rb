@@ -19,7 +19,7 @@ RSpec.describe 'Recipes Food New', type: :feature do
     before { visit new_recipe_food_path(@recipe1) }
 
     it 'Has the correct title' do
-      expect(page).to have_content('Add A New Ingredient')
+      expect(page).to have_content('Add a new ingredient')
     end
 
     it 'Has the recipe name' do

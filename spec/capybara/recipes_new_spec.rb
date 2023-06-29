@@ -16,7 +16,7 @@ RSpec.describe 'Recipes New', type: :feature do
     before { visit new_recipe_path }
 
     it 'has the correct title' do
-      expect(page).to have_content('Create A New Recipe')
+      expect(page).to have_content('Create a new recipe')
     end
 
     it 'has the correct fields' do

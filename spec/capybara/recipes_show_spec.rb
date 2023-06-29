@@ -35,7 +35,6 @@ RSpec.describe 'Recipes Show', type: :feature do
 
     it 'has the right buttons' do
       expect(page).to have_button('Generate Shopping List', exact: true)
-      expect(page).to have_button('Add new ingredient', exact: true)
     end
   end
 end

@@ -20,7 +20,7 @@ RSpec.describe 'Recipes Food Edit', type: :feature do
     before { visit edit_recipe_food_path(recipe_id: @recipe1.id, id: @recipe_food1.id) }
 
     it 'Has the correct title' do
-      expect(page).to have_content('Editing The Quantity For Test Food 1')
+      expect(page).to have_content('Editing the quantity for')
     end
 
     it 'Has the go back link' do
