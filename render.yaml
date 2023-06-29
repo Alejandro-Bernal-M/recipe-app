@@ -2,7 +2,6 @@ databases:
   - name: postgres
     databaseName: recipe-app
     user: alejandro
-    ipAllowlist: []
 
 services:
   - type: web
@@ -18,8 +17,3 @@ services:
           property: connectionString
       - key: RAILS_MASTER_KEY
         sync: false
-  - type: redis
-    name: redis
-    ipAllowlist: []
-    plan: free
-    maxMemoryPolicy: noeviction
