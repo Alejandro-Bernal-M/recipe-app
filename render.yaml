@@ -1,7 +1,5 @@
 databases:
   - name: postgres
-    databaseName: recipe-app
-    user: alejandro
 
 services:
   - type: web
