@@ -1,0 +1,35 @@
+<nav class="navbar">
+  <div class="navbar_container">
+    <%= link_to "Recipe-app", root_path, class: "nav-link nav-title" %>
+    <div class="navbarlinks" id="navbarNav">
+      <ul class="navbar-ul">
+        <% if @current_user %>
+         You are logged in as: <%= link_to  @current_user.email, edit_user_registration_path, class: 'nav-link' %>
+         <%= button_to "Sign Out", destroy_user_session_path, method: :delete, class: "logout" %>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "Sign up", new_user_registration_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+          </li>
+        <% end %>
+      </ul>
+      <ul class="navbar-ul">
+        <li class="nav-item">
+          <%= link_to "Public recipes", root_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "My recipes", recipes_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Shopping list", shopping_list_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "My food", foods_path, class: "nav-link" %>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</nav>

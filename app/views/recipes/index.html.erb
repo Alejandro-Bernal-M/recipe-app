@@ -1,0 +1,20 @@
+<div class = 'recipe_container'>
+  <% if @recipes.any? %>
+    <% @recipes.each do |recipe| %>
+      <div class='container'>
+        <div class='name_and_btn'>
+          <p class='recipe_title'><%= link_to recipe.name, recipe_path(recipe.id) %></p>
+          <% if user?(recipe, @current_user.id)%>
+            <%= button_to 'Remove', delete_recipe_path(recipe.id), method: :delete%>
+          <% end %>
+        </div>
+        <div class='description'>
+          <%= recipe.description %>
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+      <h1>There are no recipes</h1>
+  <% end %>
+  <%= button_to 'Create a new recipe', new_recipe_path, method: :get,  class: 'btn' %>
+</div>

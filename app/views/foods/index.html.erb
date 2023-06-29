@@ -1,0 +1,28 @@
+<div class="foods-list-container">
+  <h1 class="foods-list-title">My Foods</h1>
+  <div class="add-food-button">
+    <%= button_to 'Add new food', new_food_path, method: :get %>
+  </div>
+  <div class="foods-list">
+    <table class="table-food">
+      <thead>
+        <th>Name</th>
+        <th>Measurement Unit</th>
+        <th>Unit Price</th>
+        <th>Actions</th>
+      </thead>
+      <tbody>
+        <% @foods.each do |food| %>
+          <tr>
+            <td><%= food.name %></td>
+            <td><%= food.measurement_unit %></td>
+            <td><%= food.price %></td>
+            <td>
+            <%= button_to 'Remove', delete_food_path(food.id), method: :delete%>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+<div class = 'recipe_container'>
+  <h1>Editing the quantity for <%= @recipe_food.food.name %> </h1>
+   <%= link_to 'Cancel, go back', recipe_path(@recipe)  %>
+  <%= form_with model: @recipe_food, url: update_recipe_food_path(recipe_id: @recipe.id, id: @recipe_food.id), method: :patch do |form| %>
+    <%= form.number_field :quantity, placeholder: 'quantity' %>
+    <%= form.submit 'Update quantity' %>
+  <% end %>
+</div>

@@ -1,0 +1,53 @@
+<div class = 'recipe_container'>
+  <h1> <%= @recipe.name %> </h1>
+  <div class= 'recipe_details_and_toggle'>
+    <div class='recipe_details'>
+      <p>Preparation time: <%= @recipe.preparation_time%> hours </p>
+      <p>Cooking time: <%= @recipe.cooking_time%> hours </p>
+      <p> <%= @recipe.description %> </p>
+    </div>
+    <div class= 'toggle_btn'>
+      <% if user?(@recipe, @current_user.id ) %>
+        <% if @recipe.public? %>
+          <span> The recipe is public,  </span>
+          <%= link_to ' Make Private', update_recipe_public_path(@recipe), data: {turbo_method: :patch} %>
+        <% else %>
+          <span> The recipe is private,  </span>
+          <%= link_to ' Make Public', update_recipe_public_path(@recipe),  data: {turbo_method: :patch} %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  <div class = 'recipe_buttons'>
+  <%= button_to 'Generate Shopping List', shopping_list_path(recipe_id: @recipe.id), method: :get %>
+  <% if user?(@recipe, @current_user.id ) %>
+    <%= button_to 'Add new ingredient', new_recipe_food_path(recipe_id: @recipe.id), method: :get %>
+  <% end %>
+  </div>
+  <hr class= 'divisor' />
+  <div class= 'recipe_ingredients'>
+    <table>
+      <thead>
+        <tr>
+          <th>Food</th>
+          <th>Quantity</th>
+          <th>Value</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @recipe.recipe_foods.each do |ingredient| %>
+          <tr>
+            <td><%= ingredient.food.name %></td>
+            <td><%= ingredient.quantity %> <%= ingredient.food.measurement_unit%> </td>
+            <td>$<%= ingredient.food.price * ingredient.quantity %></td>
+            <td>
+             <%= link_to 'Modify', edit_recipe_food_path(recipe_id:@recipe.id, id: ingredient.id) %> 
+              <%= link_to 'Remove', delete_recipe_food_path(recipe_id:@recipe.id, id: ingredient.id), data: {turbo_method: :delete} %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
