@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Recipe, type: :model do
   user = User.create(name: 'Test User', email: 'test@test.com')
   recipe = Recipe.create(name: 'Test Recipe', preparation_time: 10, cooking_time: 10, description: 'Test Description',
-                         public: true, user: user)
+                         public: true, user:)
 
   it 'is valid with valid attributes' do
     expect(recipe).to be_valid
