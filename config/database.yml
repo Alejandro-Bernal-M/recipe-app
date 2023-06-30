@@ -87,4 +87,7 @@ test:
 #
 production:
   <<: *default
-  url: <%= ENV['DATABASE_URL']
+  database: recipe_app_atfz
+  username: alejandro
+  password: <= ENV['DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
