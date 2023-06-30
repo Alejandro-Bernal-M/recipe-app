@@ -89,5 +89,5 @@ production:
   <<: *default
   database: recipe_app_atfz
   username: alejandro
-  password: <= ENV['DATABASE_PASSWORD'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
   url: <%= ENV['DATABASE_URL'] %>
